@@ -1,3 +1,6 @@
+# this script is from Adrian Rosebrock https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/
+# i have made slight changes to fit the script according to our requirements
+
 import numpy as np
 import argparse
 import time
