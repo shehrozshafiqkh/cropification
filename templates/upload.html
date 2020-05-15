@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Upload</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+    body {
+        background-image: url({%static 'images/j5.jfif' %});
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 4px;
+        overflow: hidden;
+        background-color: #333;
+        text-decoration: none;
+    }
+    
+    li {
+        float: right;
+        text-decoration: none;
+        list-style: none;
+    }
+    
+    li a,
+    .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        list-style: none;
+    }
+    
+    li a:hover {
+        text-decoration: none;
+        list-style: none;
+        color: white;
+    }
+    
+    .files input {
+        /*outline: 2px dashed #92b0b3;*/
+        outline-offset: -10px;
+        -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+        transition: outline-offset .15s ease-in-out, background-color .15s linear;
+        padding: 120px 0px 85px 35%;
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100% !important;
+    }
+    
+    .files input:hover {
+        outline: 2px dashed #92b0b3;
+        outline-offset: -10px;
+        -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+        transition: outline-offset .15s ease-in-out, background-color .15s linear;
+        border: 1px solid #92b0b3;
+    }
+    
+    .files {
+        position: relative
+    }
+    
+    .files:after {
+        pointer-events: none;
+        position: absolute;
+        top: 43px;
+        left: 0;
+        width: 150px;
+        right: 0;
+        height: 100px;
+        content: "";
+        background-image: url({% static 'images/upload2.png' %});
+        display: block;
+        margin: 0 auto;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border-radius: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .color input {
+        background-color: #f1f1f1;
+    }
+    
+    .files:before {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        pointer-events: none;
+        width: 100%;
+        right: 0;
+        height: 57px;
+        content: " or drag your file here. ";
+        display: block;
+        margin: 0 auto;
+        color: cornsilk;
+        font-weight: 600;
+        text-transform: capitalize;
+        margin-left: 5%;
+    }
+    
+    .header {
+        height: 50px;
+        background: #7fbece;
+        margin-bottom: 2.5em;
+    }
+    
+    h1 {
+        font-family: 'Roboto Slab', serif;
+        padding-left: 3%;
+        border-bottom: 1px solid #ccc;
+        margin-top: 0%;
+        color: cornsilk;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    
+    .files label {
+        color: cornsilk;
+    }
+    
+    #ui {
+        background-color: #333;
+        margin-top: 0px;
+        padding: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+        color: white;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border-radius: 50px;
+    }
+    
+    .btn-custom {
+        background: rgba(32, 178, 129, 0.8);
+        border-color: rgba(32, 178, 129, 0.8);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        min-height: 48px;
+    }
+    
+    .btn-custom:focus,
+    .btn-custom:hover,
+    .btn-custom:active,
+    .btn-custom:active:focus {
+        background: rgb(32, 178, 105);
+        border-color: rgb(32, 178, 105);
+        color: #fff;
+    }
+    
+    @media (max-width: 767px) {
+        body {
+            padding-bottom: 70px;
+        }
+    }
+</style>
+
+<body>
+
+    <ul>
+        <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+                Facilitation System</a> </li>
+        <li><a href="logout">Logout</a></li>
+        <li><a href="view_profile">Profile</a></li>
+        <li><a href="history">History</a></li>
+        <li><a href="gallery">Gallery</a></li>
+
+
+
+
+        </li>
+    </ul>
+
+
+    <div class="container" style="margin-top:10px;">
+        <h1 style="text-align:left">Add Image</h1>
+        <div id="ui">
+            <div class="row">
+                <div class="col-md-5">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group files">
+                            <label>Upload Your File</label>
+                            <input style="color:cornsilk;" type="file" accept="image/*" id="media" name="media" multiple required autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase">submit </button>
+                    </form>
+                </div>
+
+            </div>
+
+
+
+</body>
+
+</html>

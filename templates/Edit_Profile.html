@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title> My Profile </title>
+
+    <style type="text/css">
+        body {
+            background-image: url({%static 'images/j5.jfif' %});
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin-top: 20px;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            overflow: hidden;
+            background-color: #333;
+            text-decoration: none;
+            margin-top: -2%;
+        }
+        
+        li {
+            float: right;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a:hover {
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+        
+        #ui {
+            background-color: #333;
+            padding: 30px;
+            margin-top: 6px;
+            margin-left: 250px;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+    </style>
+
+    <body>
+
+        <ul>
+            <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+        Facilitation System</a> </li>
+            <li><a href="logout">Logout</a></li>
+            <li><a href="view_profile">Profile</a></li>
+            <li><a href="history">History</a></li>
+            <li><a href="gallery">Gallery</a></li>
+
+
+
+
+            </li>
+        </ul>
+
+
+
+
+        <div class="container bootstrap snippet">
+            <h1 class="text" style="font-weight: bolder; color:cornsilk; border-bottom: 1px solid gray; font-family: monospace;"><span class="glyphicon glyphicon-user"></span> My Profile</h1>
+
+
+
+            <!-- edit form column -->
+
+            <div class="col-md-9 personal-info">
+                <div id="ui">
+                    <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a>
+                        <i class="fa fa-coffee"></i> You can <strong>view</strong> and <strong>Edit</strong> your personal info here.
+                    </div>
+                    <h3 style="color: white;">Personal info</h3>
+
+                    <form class="form-horizontal" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" style="color: white;">First name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" name="fname" value="{{user.first_name}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" style="color: white;">Last name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" name="lname" value="{{user.last_name}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" style="color: white;">Email:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" name="email" value="{{user.email}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" style="color: white;">Gender:</label>
+                            <div class="col-lg-8">
+                                <select class="form-control" name="gender" id="gender" required autocomplete="off">
+                <option selected disabled>
+                  {{user.gender}}
+                </option>
+                <option>
+                  Male
+                </option>
+                <option>
+                  Female
+                </option>
+                <option>
+                  Other
+                </option>
+
+              </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <button class="btn btn-primary" type="submit">Update information</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <br>
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <button class="btn" style="margin-right: 100px;"><a href="changepassword">Change Password</a></button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+
+
+    </body>
+</head>
+
+</html>

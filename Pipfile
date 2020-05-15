@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+asgiref = "==3.2.7"
+certifi = "==2020.4.5.1"
+gunicorn = "==20.0.4"
+psycopg2 = "==2.8.5"
+pytz = "==2020.1"
+sqlparse = "==0.3.1"
+Django = "==3.0.5"
+pillow = "*"
+mysqlclient = "*"
+
+[requires]
+python_version = "3.7"

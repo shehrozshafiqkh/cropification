@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Services</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="">`
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+        body {
+            background-image: url({%static 'images/j5.jfif' %});
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            overflow: hidden;
+            background-color: #333;
+            text-decoration: none;
+            margin-top: -2%;
+        }
+        
+        li {
+            float: right;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a:hover {
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+        
+        .button {
+            background: rgba(32, 178, 129, 0.8);
+            border-color: rgba(32, 178, 129, 0.8);
+            /* Green */
+            color: white;
+            padding: 40px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: grid;
+            font-size: 20px;
+            font-family: monospace;
+            border: 1px solid black;
+            width: 30%;
+            height: 20%;
+            font-weight: bold;
+            margin-right: auto;
+            margin-left: auto;
+            box-sizing: content-box;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+        }
+        
+        .button:hover {
+            background: rgb(32, 178, 105);
+            border-color: rgb(32, 178, 105);
+            text-decoration: none;
+            box-shadow: black;
+        }
+        
+        #ui {
+            margin-top: 2%;
+            background-color: #333;
+            padding: 30px;
+            padding-bottom: 1%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 50px;
+        }
+        
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+                Facilitation System</a> </li>
+        <li><a href="../../logout">Logout</a></li>
+        <li><a href="../../view_profile">Profile</a></li>
+        <li><a href="../../history">History</a></li>
+        <li><a href="../../gallery">Gallery</a></li>
+
+
+
+
+        </li>
+    </ul>
+
+    <div class="container">
+
+        <h1 class="text" style="font-weight: bolder; color:cornsilk; border-bottom: 1px solid gray; margin-top: 6px;">
+            Choose Service
+        </h1>
+
+        <div id="ui">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="button" value="Object" name="Object">Object Detection</button>
+                <button type="submit" class="button" value="land_use" name="land_use">Land Use</button>
+                <button type="submit" class="button" value="parameter" name="parameter">Crop Parameters</button>
+                <button type="submit" class="button" value="vegetation_localization" name="vegetation_localization">Vegetation Localization</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

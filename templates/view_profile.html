@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title> My Profile </title>
+
+    <style type="text/css">
+        body {
+            background-image: url({%static 'images/j5.jfif' %});
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            opacity: .8;
+            color: white;
+            text-align: center;
+            padding-top: .5%;
+        }
+        
+        #ui {
+            background-color: #333;
+            padding: 30px;
+            margin-top: 2px;
+            margin-left: 50px;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            overflow: hidden;
+            background-color: #333;
+            text-decoration: none;
+        }
+        
+        li {
+            float: right;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a:hover {
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+    </style>
+
+    <body>
+        <ul>
+            <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+                Facilitation System</a> </li>
+            <li><a href="logout">Logout</a></li>
+            <li><a href="view_profile">Profile</a></li>
+            <li><a href="history">History</a></li>
+            <li><a href="gallery">Gallery</a></li>
+
+
+
+
+            </li>
+        </ul>
+
+
+
+        <div class="container bootstrap snippet">
+            <h1 class="text" style="font-weight: bolder; color:cornsilk; border-bottom: 1px solid gray; margin-top: 6px; font-family: monospace; ">
+                <span class="glyphicon glyphicon-user"></span> My Profile</h1>
+            <div class="container bootstrap snippet">
+                <div class="panel-body inf-content">
+                    <div id="ui">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <h3 style="color: white; text-align: center;">Personal info</h3>
+
+                                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/user-453533-fdadfd.png" data-original-title="Usuario">
+                                <ul title="Ratings" class="list-inline ratings text-center">
+                                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <strong style="color: white;">Information</strong><br>
+                                <div class="table-responsive">
+                                    <table class="table table-condensed table-responsive table-user-information">
+                                        <tbody>
+
+                                            <td>
+                                                <strong>
+                                                <span class="glyphicon glyphicon-user " style="color: white;">
+                                                    First_Name </span>
+
+                                            </strong>
+                                            </td>
+                                            <td class="text-primary" style="color: white;">{{user.first_name}}
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                    <span class="glyphicon glyphicon-cloud text-primary"
+                                                        style="color:white;"> Last_Name</span>
+
+                                                </strong>
+                                                </td>
+                                                <td class="text-primary" style="color:white;">
+                                                    {{user.last_name}}
+                                                </td>
+                                            </tr>
+
+
+
+
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                    <span class="glyphicon glyphicon-envelope text-primary"
+                                                        style="color:white;"> Email</span>
+
+                                                </strong>
+                                                </td>
+                                                <td class="text-primary" style="color:white;">
+                                                    {{user.email}}
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                    <span class="glyphicon glyphicon-calendar text-primary"
+                                                        style="color:white;"> Gender</span>
+
+                                                </strong>
+                                                </td>
+                                                <td class="text-primary" style="color:white;">
+                                                    {{user.gender}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-end">
+                                        <button class="btn " type="submit"><a href="updateprofile" style="">Edit
+                                            Profile</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- <div class="footer">
+        <p>Copyright ©2020 All rights reserved | This Sytem is developed for digital farming by CUI students.</p>
+      </div>
+       -->
+
+    </body>
+</head>
+
+</html>

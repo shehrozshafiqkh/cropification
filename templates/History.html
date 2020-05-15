@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            overflow: hidden;
+            background-color: #333;
+            text-decoration: none;
+        }
+        
+        li {
+            float: right;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a:hover {
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+        
+        .panel-order .row {
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .panel-order .row:last-child {
+            border: 0px;
+        }
+        
+        .panel-order .row .col-md-1 {
+            text-align: center;
+            padding-top: 15px;
+        }
+        
+        .panel-order .row .col-md-1 img {
+            width: 50px;
+            max-height: 50px;
+        }
+        
+        .panel-order .row .row {
+            border-bottom: 0;
+        }
+        
+        .panel-order .row .col-md-11 {
+            border-left: 1px solid #ccc;
+        }
+        
+        .panel-order .row .row .col-md-12 {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+        
+        .panel-order .row .row .col-md-12:last-child {
+            font-size: 11px;
+            color: #555;
+            background: #efefef;
+        }
+        
+        .panel-order .btn-group {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .panel-order .panel-body {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        
+        .panel-order .panel-deading {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+				Facilitation System</a> </li>
+        <li><a href="logout">Logout</a></li>
+        <li><a href="view_profile">Profile</a></li>
+        <li><a href="history">History</a></li>
+        <li><a href="gallery">Gallery</a></li>
+
+
+
+
+        </li>
+    </ul>
+
+
+    <div class="panel panel-default panel-order">
+        <div class="panel-heading">
+            <strong> History</strong>
+
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1"><img src="https://bootdey.com/img/Content/user_3.jpg" class="media-object img-thumbnail"></div>
+                    {% for his in history %}
+
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table table-condensed table-responsive table-user-information">
+                                    <tbody>
+
+                                        <td>
+                                            <strong>
+												<span class="glyphicon glyphicon-user " style="color:black;">
+													Image </span>
+
+											</strong>
+                                        </td>
+                                        <td class="text-primary" style="color: black;">{{his.pic}}
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>
+													<span class="glyphicon glyphicon-user " style="color:black;">
+														Selection </span>
+
+												</strong>
+                                            </td>
+                                            <td class="text-primary" style="color:black;">{{his.selection}}
+                                            </td>
+
+                                        </tr>
+
+                            </div>
+                            <div class="col-md-12">
+                                Date & Time : {{his.time}}<a href="#">{{his.user_id.get_full_name}} </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+
+
+                <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+                <script type="text/javascript">
+                </script>
+</body>
+
+</html>

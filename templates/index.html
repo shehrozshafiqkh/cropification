@@ -1,0 +1,607 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cropification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="">`
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: bold;
+            color: black;
+        }
+        
+        .header {
+            width: 100%;
+            height: 100vh;
+            background-image: url({%static 'images/j5.jfif' %});
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
+            position: relative;
+            margin-top: -2%;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0%;
+            bottom: 0%;
+            left: 0%;
+            right: 0%;
+            opacity: .1;
+            z-index: -1;
+            background-color: aquamarine;
+        }
+        
+        .navbar::before {
+            content: "";
+            position: absolute;
+            top: 0%;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            opacity: .3;
+            z-index: -1;
+            background-color: aquamarine;
+        }
+        
+        .extra-div h2 {
+            font-size: 0.9rem;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+            line-height: 1.1;
+            word-spacing: 4px;
+        }
+        
+        .nav-item a {
+            color: #fff !important;
+            font-weight: bold;
+            float: right;
+        }
+        
+        .header-section {
+            width: 100%;
+            height: inherit;
+            color: black;
+            text-align: center;
+            position: relative;
+        }
+        
+        .center-div {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+        
+        .header-button a {
+            border: 1px solid #fff;
+            border-radius: 100px;
+            margin: 0 5px;
+            padding: 12px 35px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        .header-button a:hover {
+            background: rgba(32, 178, 129, 0.6);
+            text-decoration: none;
+            box-shadow: black;
+        }
+        
+        .center-div p {
+            font-size: 1.3rem;
+            padding: 10px 0 20px 0;
+            color: white;
+        }
+        
+        .contactUs {
+            width: 100%;
+            height: 100vh;
+            padding: 80px 0;
+            position: relative;
+            margin-top: 160px;
+        }
+        
+        .contactUs::before {
+            content: "";
+            position: absolute;
+            top: 0%;
+            left: 0;
+            bottom: 0%;
+            right: 0;
+            opacity: .3;
+            background: linear-gradient(330deg, green 55%, #fff 0%);
+        }
+        
+        .header-extra-div {
+            width: 10%;
+            height: 100%;
+            margin: 10px 0px;
+        }
+        
+        .extra-div {
+            background: linear-gradient(120deg, seagreen, lightcyan);
+            border: medium none;
+            padding: 80px !important;
+            margin-top: 30px;
+            border-radius: 20px;
+            transition: 0.3s;
+            font-size: 1.3rem;
+        }
+        
+        .extra-div h2 {
+            font-size: 2.0rem;
+        }
+        
+        .form-button button {
+            border: 1px white;
+            border-radius: 100px;
+            margin: 0 5px;
+            padding: 12px 35px;
+            outline: none;
+            color: 50d1c0;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: center;
+            background-color: transparent;
+        }
+        
+        form:hover .form-button button:hover {
+            background-color: white;
+            text-decoration: none;
+            box-shadow: black;
+        }
+        
+         ::placeholder {
+            font-size: 0.85rem;
+        }
+        
+        .servicing {
+            /* width: 100%;
+        height: 100vh; */
+            padding: 70px;
+            padding-bottom: 150px;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .servicing::before {
+            content: "";
+            position: absolute;
+            top: 0%;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            opacity: .3;
+            z-index: -1;
+            background: linear-gradient(160deg, green 55%, white 0);
+        }
+        
+        .card {
+            transition: 0.4s ease;
+            margin-top: 40px;
+            min-height: 250px;
+        }
+        
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .card:hover .card-header,
+        .card:hover .card-body {
+            color: seagreen;
+        }
+        
+        .card-header {
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 25px 9 !important;
+            background-color: white
+        }
+        
+        .card-body {
+            padding: 30px 0px !important;
+            background-color: white;
+        }
+        
+        .card-body li {
+            margin: 10px 0;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .card-footer {
+            background-color: white;
+        }
+        
+        .newsletter {
+            width: 100%;
+            height: auto;
+            margin: 80px auto;
+            font-size: 10rem;
+        }
+        
+        .news-input {
+            border-radius: 100px 0px 0px 100px !important;
+            min-width: 150px;
+            min-height: 45px;
+        }
+        
+        .input-group-text {
+            color: white !important;
+            background: green !important;
+            opacity: .5;
+            border-radius: 0 100px 100px 0 !important;
+        }
+        
+        .footersection {
+            width: 100%;
+            height: auto;
+            padding: 70px 0px 20px 0px;
+            background: lightgreen;
+            position: relative;
+            margin-top: 240px;
+        }
+        
+        .footersection p {
+            color: black;
+            font-size: 0.8rem;
+        }
+        
+        .footersection h3 {
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-size: 1.5rem !important;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rba();
+        }
+        
+        #myBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            color: white;
+            background: burlywood;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        #myBtn:hover {
+            background: lightgreen;
+        }
+        
+        @media (max-width: 1300px) {
+            body {
+                margin-top: -20px;
+            }
+        }
+        
+        @media (max-width: 670px) {
+            .footerdiv {
+                text-align: center;
+            }
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="header" id="topheader">
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-succes fixed-top">
+            <div class="container text-uppercase p-2">
+
+                <a class="navbar-brand  font-weight-bold text-white " href="/">Agriculture <p>Faciliation System</p></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav ml-auto text-uppercase">
+                        <li class="nav-item">
+                            <a class="nav-link" href="signin">Upload Image <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#use">How to use?</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicingdiv">Services</a>
+
+                        </li>
+
+
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <section class="header-section">
+            <div class="center-div">
+                <h1 class="font-weight-bold">INCREASE YIELD PRODUCTIVITY</h1>
+                <p> Farm is a Family's Heritage and Future.</p>
+                <div class="header-button">
+                    <a href="#footerfdiv">About Us</a>
+                    <a href="#contactId">Contact Us</a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    <!-- ******* header part ends************-->
+
+    <section class="header-extradiv" id="use">
+        <div class="container headings text-center">
+
+            <div class="extra-div  " style="font-family: monospace;">
+                <a href="#"><i class="fa-3x fa fa-desktop" aria-hidden="true"></i></a>
+                <h2 class="text-center ">HOW TO USE</h2>
+                <ul>
+                    <li>-Go to Upload Image.</li>
+                    <li>-Simply Sign In the Account.</li>
+                    <li>-if do not have an account kindly Sign Up first.</li>
+                    <li>-Upload the Images.</li>
+                    <li>-Select required action or option.</li>
+                    <li>-Enjoy the Services.!!!</li>
+                </ul>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section class="servicing" id="servicingdiv">
+        <div class="container headings text-center">
+            <h1 class="text-center font-weight-bold " style="color:black; margin-top:-20px">Our Services</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12">
+                    <div class="card text-center">
+                        <div class="card-header">Object Detection</div>
+                        <div class="card-body">
+                            <li>Help to identify different objects like Field, Road, Empty field etc.</li>
+
+                        </div>
+                        <div class="card-footer"></div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="card text-center">
+                        <div class="card-header">Land Use</div>
+                        <div class="card-body">
+                            <li>Get the Area of all identified objects.</li>
+                        </div>
+                        <div class="card-footer"></div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="card text-center">
+                        <div class="card-header">Crop Parameters</div>
+                        <div class="card-body">
+                            <li>Separately get the height and width of Crop or Field.</li>
+                        </div>
+                        <div class="card-footer"></div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="card text-center">
+                        <div class="card-header">Vegetation Localization</div>
+                        <div class="card-body">
+                            <li>Vegetation Localization helps to identify area where the crop is present.</li>
+                        </div>
+                        <div class="card-footer"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="contactUs" id="contactId">
+        <div class="container headings text-center">
+            <h1 class="text-center font-weight-bold" style="color: black;">CONTACT US</h1>
+            <p class="text-capitalize pt-1">We are here to Help and Answer any Question You Might have. We look forward to hearing from you.
+            </p>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-10 offset-lg-2 offset-md-2 col-1">
+                    <form action="/" method="POST">
+                        {% csrf_token %}
+
+
+
+                        <input type="text" class="form-control" name="name" id="Username" required autocomplete="off" placeholder="Enter Your Name"><br>
+
+
+                        <input type="email" class="form-control" name="email" id="email" required autocomplete="off" placeholder="Enter Email"><br>
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" rows="4" name="message" id="comment" required autocomplete="off" placeholder="Enter Your Message"></textarea>
+                            <br>
+
+                            <div class="d-flex justify-content-center form-button">
+                                <button type="submit" class="btn " style="font-weight:bold;"> Submit </button>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </form>
+
+
+    <footer class="footersection" id="footerfdiv">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4  col-md-6 col-12 footerdiv">
+                    <div>
+                        <h3> About US</h3>
+                        <p>Provides you the digital and smart way of farming.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-6 col-12 footerdiv text-center ">
+                    <div>
+                        <h3> Navigation Links</h3>
+
+                        <li><a href="#use" style="color: black;">How to Use?</a> </li>
+                        <li><a href="#servicingdiv" style="color: black;">Services</a> </li>
+                        <li><a href="#footerfdiv" style="color: black;">About</a> </li>
+                        <li><a href="#contactId" style="color: black;">Contact</a> </li>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-12 col-12 footerdiv">
+                    <div>
+                        <h3>NEWSLETTER</h3>
+                        <p>step towards digital farming with innovatie ideas.
+                        </p>
+                    </div>
+                    <div class="container newsletter-main">
+                        <div class="row">
+                        </div class="col-lg-8 offset-lg-2 col-12">
+                        <!-- <form action="/" method="POST">
+                {% csrf_token %} -->
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control news-input" placeholder="Email" id="demo" name="newsemail">
+                            <div class="input-group-append">
+
+                                <button type="submit" class="input-group-text "> Subscribe </button>
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 text-center">
+            <p>Copyright ©2020 All rights reserved | This Sytem is developed for digital farming by CUI students.</p>
+        </div>
+        <div class="scrolltop float-right">
+            <i class="fa fa-arrow-up " onclick="topFunction()" id="myBtn"></i>
+        </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function() {
+            $('#subscribe-email-form').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: url, //this is the submit URL
+                    type: 'GET', //or POST
+                    data: $('#subscribe-email-form').serialize(),
+                    success: function(data) {
+                        alert('successfully submitted')
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 3000
+            });
+        });
+        mybutton = document.getElementById("myBtn");
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; //for safari//
+            document.documentElement.scrollTop = 0; //for chrome and others//
+
+        }
+    </script>
+</body>
+
+</html>

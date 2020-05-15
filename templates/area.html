@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Area</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+        div {
+            margin-top: 5%;
+        }
+        
+        body {
+            background-image: url({%static 'images/j5.jfif' %});
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            overflow: hidden;
+            background-color: #333;
+            text-decoration: none;
+        }
+        
+        li {
+            float: right;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        li a:hover {
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+        
+        td {
+            color: white;
+        }
+        
+        th {
+            color: white;
+        }
+        
+        #ui {
+            background-color: #333;
+            padding: 30px;
+            margin-top: 6px;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+    </style>
+
+    <body>
+        <ul>
+            <li style="float: left ; font-weight:bolder; font-family:monospace; color: white;"><a href="/">Agriculture
+                Facilitation System</a> </li>
+            <li><a href="logout">Logout</a></li>
+            <li><a href="view_profile">Profile</a></li>
+            <li><a href="history">History</a></li>
+            <li><a href="gallery">Gallery</a></li>
+
+
+
+
+            </li>
+        </ul>
+        <h1 class="text" style="font-weight: bolder; color:cornsilk; border-bottom: 1px solid grey; font-family:monospace; font-size: 4rem; margin-top: 6px; margin-left: 10px;">
+            Land Use
+        </h1>
+
+        <div>
+            <div id="ui">
+                <h2 style="color: white;">Areas:</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key,value in Areas.items %}
+                        <tr>
+                            <td>{{key}}</td>
+                            <td>{{value}} sq. foot</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
