@@ -42,10 +42,19 @@ Inorder to use the provided services, you need to signup.
 The website also shows the detection output with bounding boxes around the detected objects. There will be no box if the input doesn't contain any object.
 
 ### Input (Object Detection)
-![]()
+![](media/images/object-detection.JPG)
+
+### Output (Object Detection)
+![](media/images/object-detection_Output.JPG)
+
+### Input (Vegetation Localization)
+![](media/images/vegetation-localization.JPG)
+
+### Output (Vegetation Localization)
+![](media/images/vegetation-localization_Output.JPG)
 
 ## TO-DO
-- Make website live and deploy it on Google App Engine
+- Make website live using Google App Engine
 
 
 ## Contribute
