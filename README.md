@@ -10,7 +10,7 @@ It's implemented using django framework and python libraries.
 - OpenCV
 - PostgreSQL
 
-You also need to download the yolo6000.weights file and place it in the "weights" directory.
+You also need to download the yolo6000.weights file and place it in the "yolo_v3" directory.
 
 You can download the weights from the following link (this action may require permission):
 ```
