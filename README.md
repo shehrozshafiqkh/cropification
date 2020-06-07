@@ -10,7 +10,7 @@ It's implemented using django framework and python libraries.
 - OpenCV
 - PostgreSQL
 
-You also need to download the yolo6000.weights file and place it in the "weights" directory.
+You also need to download the yolo6000.weights file and place it in the "yolo_v3" directory.
 
 You can download the weights from the following link (this action may require permission):
 ```
@@ -45,13 +45,13 @@ The website also shows the detection output with bounding boxes around the detec
 ![](media/images/object-detection.JPG)
 
 ### Output (Object Detection)
-![](media/images/object-detection_Output.JPG)
+![](media/output/object-detection_Output.JPG)
 
 ### Input (Vegetation Localization)
 ![](media/images/vegetation-localization.JPG)
 
 ### Output (Vegetation Localization)
-![](media/images/vegetation-localization_Output.JPG)
+![](media/output/vegetation-localization_Output.JPG)
 
 ## TO-DO
 - Make website live using Google App Engine
