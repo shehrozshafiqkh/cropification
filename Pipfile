@@ -8,13 +8,15 @@ verify_ssl = true
 [packages]
 asgiref = "==3.2.7"
 certifi = "==2020.4.5.1"
+django = "==3.0.7"
 gunicorn = "==20.0.4"
+numpy = "==1.18.4"
+opencv-python = "==4.1.0.25"
+opencv-python-headless = "==4.2.0.32"
 psycopg2 = "==2.8.5"
 pytz = "==2020.1"
 sqlparse = "==0.3.1"
-Django = "==3.0.5"
-pillow = "*"
-mysqlclient = "*"
+Pillow = "==7.1.2"
 
 [requires]
 python_version = "3.7"
