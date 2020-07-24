@@ -29,10 +29,10 @@ pip install -r requirements.txt
 ```
 To run server:
 ```
-pip manage.py collectstatic
-pip manage.py makemigrations
-pip manage.py migrate
-pip manage.py runserver
+python manage.py collectstatic
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 ```
 Server will start running on localhost(127.0.0.1/8000).
 
