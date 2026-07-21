@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
 from datetime import datetime
-from django.contrib.auth.models import User, auth
-from django.contrib.auth import get_user_model, authenticate, login, update_session_auth_hash
+from django.contrib.auth import get_user_model, authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
@@ -39,9 +38,9 @@ def signin(request):
                 request.session.set_expiry(600 * 100)
 
             if User.objects.filter(email=email).exists():
-                user = auth.authenticate(email=email, password=password)
+                user = authenticate(email=email, password=password)
                 if user is not None:
-                    auth.login(request, user)
+                    login(request, user)
                     request.session['user_id'] = user.id
                     return redirect('upload')
                 else:
@@ -113,7 +112,7 @@ def history_view(request):
 
 @login_required
 def logout_request(request):
-    auth.logout(request)
+    logout(request)
     return redirect('index')
 
 
@@ -179,7 +178,7 @@ def change_password_request(request):
         confirm_password = request.POST.get('Confirm_Password')
         if new_password == confirm_password:
             user = User.objects.get(id=request.session['user_id'])
-            exists = auth.authenticate(email=user.email, password=old_password)
+            exists = authenticate(email=user.email, password=old_password)
             if exists is not None:
                 user.set_password(new_password)
                 user.save()
